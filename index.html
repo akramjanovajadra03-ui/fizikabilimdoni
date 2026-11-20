@@ -4,105 +4,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PHYSICS TEST</title>
+  <title>Biologiya bilimdoni | Test</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="gold-line line-top"></div>
-  <div class="gold-line line-bottom"></div>
-  <div class="glow glow-one"></div>
-  <div class="glow glow-two"></div>
 
-  <main class="app">
+  <div class="neon-line line-top"></div>
+  <div class="neon-line line-bottom"></div>
+
+  <main class="container">
+
     <header class="header">
-      <div class="logo">P<span>H</span>YSICS</div>
-      <div class="header-label">KNOWLEDGE CHALLENGE</div>
+      <div class="logo">BIO<span>TEST</span></div>
+      <p>BIOLOGIYA BILIMDONI</p>
     </header>
 
-    <section id="startScreen" class="panel start-screen">
-      <div class="small-label">SCIENCE • KNOWLEDGE • SUCCESS</div>
-      <h1>PHYSICS <span>TEST</span></h1>
-      <p class="subtitle">Bilimingizni sinab ko‘ring!</p>
+    <section id="startScreen" class="panel">
+      <h1>Bilimingizni sinab ko‘ring!</h1>
+      <p class="subtitle">Biologiya fanidan bilimlar bellashuvi</p>
 
-      <div class="section-title">01 / DARAJANI TANLANG</div>
+      <label>Ism va familiyangiz</label>
+      <input type="text" id="studentName" placeholder="Ism va familiyangizni kiriting">
+
+      <label>Test darajasini tanlang</label>
       <div class="levels">
-        <button class="level active" data-level="easy">
-          <b>01</b>
-          <span>OSON</span>
-          <small>Boshlang‘ich</small>
-        </button>
-        <button class="level" data-level="medium">
-          <b>02</b>
-          <span>O‘RTA</span>
-          <small>Bilimdon</small>
-        </button>
-        <button class="level" data-level="hard">
-          <b>03</b>
-          <span>QIYIN</span>
-          <small>Ekspert</small>
-        </button>
+        <button class="level active" data-level="easy">OSON</button>
+        <button class="level" data-level="medium">O‘RTA</button>
+        <button class="level" data-level="hard">QIYIN</button>
       </div>
 
-      <div class="section-title">02 / ISMINGIZNI KIRITING</div>
-      <input id="studentName" type="text" placeholder="Ism va familiyangiz..." maxlength="40">
-
-      <button id="startBtn" class="main-btn">TESTNI BOSHLASH <span>→</span></button>
-      <p class="note">10 ta savol · Har bir savol uchun 20 soniya</p>
+      <button id="startBtn" class="main-btn">TESTNI BOSHLASH</button>
+      <p class="info">10 ta savol · 20 soniya · 4 ta javob</p>
     </section>
 
-    <section id="quizScreen" class="panel quiz-screen hidden">
+    <section id="quizScreen" class="panel hidden">
       <div class="quiz-top">
-        <div>
-          <div class="small-label">ISHTIROKCHI</div>
-          <h3 id="displayName">O‘quvchi</h3>
-        </div>
-        <div class="timer-box">
-          <small>VAQT</small>
-          <strong id="timer">20</strong>
-        </div>
+        <span id="questionNumber">1 / 10</span>
+        <span id="timer">20</span>
       </div>
 
-      <div class="progress-info">
-        <span id="questionNumber">SAVOL 1 / 10</span>
-        <span id="levelLabel">OSON DARAJA</span>
+      <div class="progress">
+        <div id="progressBar"></div>
       </div>
-      <div class="progress-track"><div id="progressBar"></div></div>
 
-      <div class="question-card">
-        <div class="question-tag">PHYSICS QUESTION</div>
-        <h2 id="questionText">Savol matni</h2>
-      </div>
+      <h2 id="questionText">Savol</h2>
 
       <div id="answers" class="answers"></div>
-      <div id="feedback" class="feedback"></div>
-      <button id="nextBtn" class="main-btn hidden">KEYINGI SAVOL <span>→</span></button>
+
+      <p id="feedback"></p>
     </section>
 
-    <section id="resultScreen" class="panel result-screen hidden">
-      <div class="small-label">TEST YAKUNLANDI</div>
-      <h1>NATIJANGIZ</h1>
-      <div class="score-circle">
-        <strong id="score">0</strong>
-        <span>/ 10</span>
-      </div>
-      <h2 id="resultName">O‘quvchi</h2>
-      <p id="resultMessage">Ajoyib natija!</p>
+    <section id="resultScreen" class="panel hidden">
+      <h1>TEST YAKUNLANDI!</h1>
+      <p id="studentResult" class="student-result"></p>
 
-      <div class="result-details">
-        <div><span>To‘g‘ri javoblar</span><b id="correctCount">0</b></div>
-        <div><span>Noto‘g‘ri javoblar</span><b id="wrongCount">0</b></div>
-        <div><span>Daraja</span><b id="resultLevel">OSON</b></div>
+      <div class="score-box">
+        <div>
+          <span id="score">0</span>
+          <small>Ball</small>
+        </div>
+        <div>
+          <span id="correctCount">0</span>
+          <small>To‘g‘ri</small>
+        </div>
+        <div>
+          <span id="wrongCount">0</span>
+          <small>Noto‘g‘ri</small>
+        </div>
       </div>
 
-      <button id="restartBtn" class="main-btn">QAYTA TEST TOPSHIRISH ↻</button>
+      <p id="levelResult" class="level-result"></p>
+      <h2 class="review-title">TEST JAVOBLARI TAHLILI</h2>
+      <div id="answerReview" class="answer-review"></div>
+
+      <button onclick="location.reload()" class="main-btn">
+        QAYTA TEST TOPSHIRISH
+      </button>
     </section>
 
     <footer>
-      <div class="footer-line"></div>
-      <p>LOYIHA MUALLIFI</p>
-      <strong>AKRAMJONOVA JADRA MARATOVNA</strong>
-      <small>© 2026 PHYSICS TEST</small>
+      Loyiha muallifi: <strong>AKRAMJONOVA JADRA MARATOVNA</strong>
     </footer>
+
   </main>
 
   <script src="script.js"></script>
